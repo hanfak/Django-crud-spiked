@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from samplesite.views import hello_world, root_page
+from samplesite.views import hello_world, root_page, diff_path,query#, output
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/$', hello_world),
     url(r'^$', root_page),
+    url(r'^random/(\d+)/$', diff_path),
+    url(r'^query/$', query),
+    # url(r'^query_2/user=(?P<user>\d{5})$', output),
 ]
