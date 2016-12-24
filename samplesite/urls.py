@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from samplesite.views import hello_world, root_page, diff_path,query#, output
+from samplesite.views import hello_world, root_page, diff_path,query
+from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,5 +24,5 @@ urlpatterns = [
     url(r'^$', root_page),
     url(r'^random/(\d+)/$', diff_path),
     url(r'^query/$', query),
-    # url(r'^query_2/user=(?P<user>\d{5})$', output),
+    url(r'^polls/', include('polls.urls')),
 ]

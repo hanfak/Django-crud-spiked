@@ -16,6 +16,3 @@ def diff_path(request, number=10):
 def query(request):
     x = request.GET.get('input', '')
     return HttpResponse("the number is " + x )
-
-# def output(request, user):
-#     return HttpResponse("the user is " + user)
