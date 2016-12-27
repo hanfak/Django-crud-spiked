@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'polls/index.html', context)
 
 def show(request, question_id):
-    a_question = get_object_or_404(Question, pk = question_id)
+    a_question = __get_question(question_id)
     all_choices = a_question.choice_set.all()
     context = {
         'a_question': a_question,
@@ -27,6 +27,15 @@ def create(request):
     return redirect('/polls/')
 
 def edit(request, question_id):
-    a_question = get_object_or_404(Question, pk = question_id)
+    a_question = __get_question(question_id)
     context = { 'question': a_question }
     return render(request, 'polls/edit.html', context)
+
+def update(request, question_id):
+    edited_question = __get_question(question_id)
+    edited_question.question_text = request.POST['question_text']
+    edited_question.save()
+    return redirect('/polls/')
+
+def __get_question(question_id):
+    return get_object_or_404(Question, pk = question_id)
