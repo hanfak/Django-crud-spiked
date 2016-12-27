@@ -3,11 +3,13 @@
 {% if error_message %}
   <p><strong>{{error_message}}</strong></p>
 {% endif %}
+
 {% if all_choices %}
   <ul>
   {% for choice in all_choices %}
     <li>
       {{choice.choice_text}}
+      {{choice.pub_date}}
     </li>
   {% endfor %}
   </ul>

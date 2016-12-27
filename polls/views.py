@@ -17,3 +17,6 @@ def show(request, question_id):
         'all_choices': all_choices,
     }
     return render(request, 'polls/show.html', context)
+
+def new(request):
+    return render(request, 'polls/new.html')
