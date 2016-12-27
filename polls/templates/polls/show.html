@@ -1,18 +1,22 @@
-<h1>{{a_question.question_text}}</h1>
+{% extends 'polls/base.html' %}
 
-{% if error_message %}
-  <p><strong>{{error_message}}</strong></p>
-{% endif %}
+{% block body%}
+  <h1>{{a_question.question_text}}</h1>
 
-{% if all_choices %}
-  <ul>
-  {% for choice in all_choices %}
-    <li>
-      {{choice.choice_text}}
-      {{choice.pub_date}}
-    </li>
-  {% endfor %}
-  </ul>
-{% else %}
-    <p>No choices are available, please add some</p>
-{% endif %}
+  {% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+  {% endif %}
+
+  {% if all_choices %}
+    <ul>
+    {% for choice in all_choices %}
+      <li>
+        {{choice.choice_text}}
+        {{choice.pub_date}}
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+      <p>No choices are available, please add some</p>
+  {% endif %}
+{% endblock %}

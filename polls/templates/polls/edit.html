@@ -1,8 +1,12 @@
-<form action={% url 'polls:update' question.id %} method="post">
-  {% csrf_token %}
-  <label for="question_text">
-    Question
-    <input type="text" name="question_text" id="question_text" value="{{ question.question_text }}" placeholder="{{ question.question_text }}"/>
-  </label>
-  <input type="submit" value="Edit question"/>
-</form>
+{% extends 'polls/base.html' %}
+
+{% block body%}
+  <form action={% url 'polls:update' question.id %} method="post">
+    {% csrf_token %}
+    <label for="question_text">
+      Question
+      <input type="text" name="question_text" id="question_text" value="{{ question.question_text }}" placeholder="{{ question.question_text }}"/>
+    </label>
+    <input type="submit" value="Edit question"/>
+  </form>
+{% endblock %}

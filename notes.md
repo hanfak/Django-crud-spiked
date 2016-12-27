@@ -1,11 +1,4 @@
-Edit and update question
-  - extract form to partial, and yield to new and edit
-  - path for edit
-  - view for edit
-  - path for update
-  - view for update
 
-Delete question
 
 Seperate choices from questions in show (in views)
   question#show should go to choices#index

@@ -1,8 +1,12 @@
-<form action={% url 'polls:create' %} method="post">
-  {% csrf_token %}
-  <label for="question_text">
-    Question
-    <input type="text" name="question_text" required="required"/>
-  </label>
-  <input type="submit" value="Create question"/>
-</form>
+{% extends 'polls/base.html' %}
+
+{% block body%}
+  <form action={% url 'polls:create' %} method="post">
+    {% csrf_token %}
+    <label for="question_text">
+      Question
+      <input type="text" name="question_text" required="required"/>
+    </label>
+    <input type="submit" value="Create question"/>
+  </form>
+{% endblock %}
