@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^(?P<question_id>[0-9]+)/$', views.show, name='show'),
     url(r'^new/$', views.new, name='new'),
     url(r'^create/$', views.create, name='create'),
+    url(r'^(?P<question_id>[0-9]+)/edit/$', views.edit, name='edit'),
 ]

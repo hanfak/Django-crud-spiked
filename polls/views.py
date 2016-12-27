@@ -25,3 +25,8 @@ def create(request):
     new_question = Question(question_text=request.POST['question_text'])
     new_question.save()
     return redirect('/polls/')
+
+def edit(request, question_id):
+    a_question = get_object_or_404(Question, pk = question_id)
+    context = { 'question': a_question }
+    return render(request, 'polls/edit.html', context)
