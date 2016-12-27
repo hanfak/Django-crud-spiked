@@ -37,5 +37,10 @@ def update(request, question_id):
     edited_question.save()
     return redirect('/polls/')
 
+def destroy(request, question_id):
+    a_question = __get_question(question_id)
+    a_question.delete()
+    return redirect('/polls/')
+
 def __get_question(question_id):
     return get_object_or_404(Question, pk = question_id)
