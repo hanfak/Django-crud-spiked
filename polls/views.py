@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from .models import Question, Choice
 
@@ -20,3 +20,8 @@ def show(request, question_id):
 
 def new(request):
     return render(request, 'polls/new.html')
+
+def create(request):
+    new_question = Question(question_text=request.POST['question_text'])
+    new_question.save()
+    return redirect('/polls/')
